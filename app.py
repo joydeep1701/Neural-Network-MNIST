@@ -16,12 +16,9 @@ def index():
 def do_ocr():
     """Add two numbers server side, ridiculous but well..."""
     app.logger.debug("Accessed _do_ocr page with image data")
-    # flash('Just hit the _add_numbers function')
-    # a = json.loads(request.args.get('a', 0, type=str))
+
     data = request.args.get('imgURI', 0, type=str)
-    app.logger.debug("Data looks like " + data)
-    index = request.args.get('index', 0, type=int)
-    vocab = json.loads(request.args.get('vocab',0,type=str))
+
     latest_image_array = preprocess(data)
     result = mlp.predict(latest_image_array)
 

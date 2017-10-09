@@ -1,4 +1,5 @@
 import numpy as np
+import _pickle as pkl
 
 from NN import *
 
@@ -51,7 +52,7 @@ class MLP:
             # We do not calculate deltas for the bias values
             W_nobias = self.layers[i].W[0:-1, :]
 
-            self.layers[i].D = W_nobias.dot(self.layers[i+1].D) *                                self.layers[i].Fp
+            self.layers[i].D = W_nobias.dot(self.layers[i+1].D) * self.layers[i].Fp
 
     def update_weights(self, eta):
         for i in range(0, self.num_layers-1):
@@ -99,3 +100,18 @@ class MLP:
         output = self.forward_propagate(np.array([data]))
         yhat = np.argmax(output, axis=1)
         return yhat
+
+    def save(self, target='weights.pkl'):
+        data = [w.W for w in self.layers]
+        op = open(target,'wb')
+        pkl.dump(data, op)
+        op.close()
+        print("Weight matrix saved in {}".format(target))
+
+    def load(self, target='weights.pkl'):
+        with open('weights.pkl', 'rb') as inp:
+            data = pkl.load(inp)
+            inp.close()
+
+            for i,weight in enumerate(data):
+                self.layers[i].W = weight
