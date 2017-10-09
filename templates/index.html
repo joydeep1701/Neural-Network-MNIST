@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<style>
+
+
+    #sketch {
+        border: 5px solid black;
+        height: 280px;
+        width: 280px;
+        position: relative;
+    }
+
+    #tmp_canvas {
+        position: absolute;
+        left: 0px; right: 0;
+        bottom: 0; top: 0;
+        cursor: crosshair;
+    }
+</style>
+
+<h1>Feed Forward Neural Network</h1>
+<center>
+  <h2>Handwritten Digit Recognition using MNIST Dataset</h2>
+
+</center>
+
+
+<br>
+
+
+<center>
+    <div class="project_demo">
+        <h4 id="prompt">Enter any numeric character</h4>
+        <div id="sketch">
+            <canvas id="paint"></canvas>
+        </div>
+        <br>
+        <button type="button" class="btn btn-danger" onclick="clearDrawing()">Clear</button>
+        <button type="button" class="btn btn-success" onclick="submitDrawing()">Submit</button>
+        <br>
+        <h3 id="result"></h3>
+    </div>
+</center>
+
+<script type="text/javascript" src="static/js/ocr_canvas.js"></script>
+
+
+<p>Joydeep Mukherjee</p>
+{% endblock %}
