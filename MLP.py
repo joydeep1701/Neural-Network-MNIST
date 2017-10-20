@@ -99,7 +99,18 @@ class MLP:
     def predict(self, data):
         output = self.forward_propagate(np.array([data]))
         yhat = np.argmax(output, axis=1)
-        return yhat
+        c = 0     
+        
+        opt = {}
+        opt['Predicted:'] = str(yhat[0])
+        opt['Probabilities:'] = {}
+        for i in output[0]:
+            opt['Probabilities:'][str(c)] = "%.2f"%(i*100)
+            c += 1
+        #print(opt)
+        
+        return opt
+        #return yhat
 
     def save(self, target='weights.pkl'):
         data = [w.W for w in self.layers]

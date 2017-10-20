@@ -25,7 +25,7 @@ print("Length of training data:",len(train_data))
 
 mlp = MLP(layer_config=[784, 100, 100, 10], minibatch_size=minibatch_size)
 
-mlp.evaluate(train_data, train_labels, valid_data, valid_labels, eval_train=True)
+#mlp.evaluate(train_data, train_labels, valid_data, valid_labels, eval_train=True)
 
 def predict_latest():
     return mlp.predict(latest_image_data())

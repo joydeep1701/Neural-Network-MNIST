@@ -21,7 +21,8 @@ def do_ocr():
 
     latest_image_array = preprocess(data)
     result = mlp.predict(latest_image_array)
-
-    return jsonify(result="Prediction: "+str(result))
+    return jsonify((result))
+    #return json.dumps(str(result))
+    # return jsonify(result=""+str(result))
 app.run(host='0.0.0.0', port=5000)
-#app.run(debug=True)
+#app.run()
