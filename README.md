@@ -6,7 +6,10 @@ MNIST is a standard benchmark for neural networks. With our simple implementatio
 
 # Handwritten digit classification
 After training our network, we use user input to classify test example. In this case the classification is live & interactive
-![docs/3.png]
+![Image 1](/docs/3.png?raw=true "Prediction:3")
+![Image 2](/docs/4.png?raw=true "Prediction:4")
+![Image 3](/docs/8.png?raw=true "Prediction:8")
+![Image 4](/docs/misclassification.png?raw=true "Misclassification")
 ## About: MLP NN
 Our multilayer perceptron uses two hidden layers with 100 units each.
 
